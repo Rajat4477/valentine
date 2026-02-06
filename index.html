@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rajat ❤️ Sia</title>
+  <title>Be My Valentine 💖</title>
 
   <!-- WhatsApp Preview -->
-  <meta property="og:title" content="Rajat ❤️ Sia – Ek Chhota Sa Sawaal 💖">
-  <meta property="og:description" content="Tumhare liye kuch special banaya hai… ek baar dekh lo 😊">
+  <meta property="og:title" content="Be My Valentine 💖">
+  <meta property="og:description" content="Tumhare liye kuch special banaya hai 😊">
   <meta property="og:image" content="https://i.imgur.com/6XbFjvP.png">
   <meta property="og:type" content="website">
 
@@ -13,29 +13,53 @@
 
   <style>
     body {
+      margin: 0;
       background: #0f172a;
-      font-family: Arial;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* Top heading */
+    .header {
+      text-align: center;
+      padding: 30px 10px 20px;
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .header span {
+      color: #a3e635;
+    }
+
+    /* Center container */
+    .container {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      padding-bottom: 40px;
     }
 
-    .box {
+    /* White card */
+    .card {
       background: white;
+      border-radius: 12px;
       padding: 25px;
       text-align: center;
-      border-radius: 15px;
       width: 90%;
-      max-width: 320px;
+      max-width: 360px;
     }
 
-    img {
-      width: 120px;
+    /* IMAGE ABOVE QUESTION (FIXED ISSUE 1) */
+    .card img {
+      width: 140px;
+      margin-bottom: 15px;
     }
 
-    h3 {
+    .question {
       color: #e11d48;
+      font-size: 18px;
+      margin-bottom: 20px;
     }
 
     button {
@@ -44,6 +68,7 @@
       font-size: 16px;
       border-radius: 8px;
       border: none;
+      cursor: pointer;
     }
 
     .yes {
@@ -59,42 +84,55 @@
 
 <body>
 
-<div class="box">
-  <img src="https://i.imgur.com/6XbFjvP.png">
-  <h3>Rajat ❤️ Sia</h3>
-  <p>Kya tum meri Valentine banogi? 💖</p>
+  <!-- TOP TEXT -->
+  <div class="header">
+    Be My <span>Valentine</span>
+  </div>
 
-  <button class="yes" onclick="yesClick()">Haan 💕</button>
-  <button class="no" onclick="noClick()">Sach mein? 😳</button>
-</div>
+  <!-- CARD -->
+  <div class="container">
+    <div class="card">
 
-<script>
-  let i = 0;
-  const msgs = [
-    "Sach mein? 😳",
-    "Soch lo ek baar 🥺",
-    "Dil toot jayega 💔",
-    "Last chance 😢"
-  ];
+      <!-- IMAGE (NOW DISPLAYS CORRECTLY) -->
+      <img src="https://media.tenor.com/gUiu1zyxfzYAAAAj/bear-kiss-bear-kisses.gif">
 
-  function noClick() {
-    const noBtn = document.querySelector(".no");
-    const yesBtn = document.querySelector(".yes");
+      <!-- QUESTION -->
+      <div class="question">
+        Kya tum meri Valentine banogi? 💖
+      </div>
 
-    noBtn.innerText = msgs[i];
-    i = (i + 1) % msgs.length;
+      <!-- BUTTONS -->
+      <button class="yes" onclick="yesClick()">Yes 💕</button>
+      <button class="no" onclick="noClick()">Really sure?</button>
 
-    let size = parseFloat(getComputedStyle(yesBtn).fontSize);
-    yesBtn.style.fontSize = (size * 1.25) + "px";
-  }
+    </div>
+  </div>
 
-  function yesClick() {
-    const msg = encodeURIComponent(
-      "Haan ❤️ Main tumhari Valentine hoon 😘💖"
-    );
-    window.location.href = "https://wa.me/?text=" + msg;
-  }
-</script>
+  <script>
+    let i = 0;
+    const msgs = [
+      "Really sure?",
+      "Think again 😢",
+      "Dil toot jayega 💔",
+      "Last chance 🥺"
+    ];
+
+    function noClick() {
+      const noBtn = document.querySelector(".no");
+      const yesBtn = document.querySelector(".yes");
+
+      noBtn.innerText = msgs[i];
+      i = (i + 1) % msgs.length;
+
+      let size = parseFloat(getComputedStyle(yesBtn).fontSize);
+      yesBtn.style.fontSize = (size * 1.25) + "px";
+    }
+
+    /* YES PAGE REDIRECT (ISSUE 2 FIXED) */
+    function yesClick() {
+      window.location.href = "yes.html";
+    }
+  </script>
 
 </body>
 </html>
