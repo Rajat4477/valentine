@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rajat ❤️ Sia</title>
+
+  <!-- WhatsApp Preview -->
+  <meta property="og:title" content="Rajat ❤️ Sia – Ek Chhota Sa Sawaal 💖">
+  <meta property="og:description" content="Tumhare liye kuch special banaya hai… ek baar dekh lo 😊">
+  <meta property="og:image" content="https://i.imgur.com/6XbFjvP.png">
+  <meta property="og:type" content="website">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: #0f172a;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 320px;
+    }
+
+    img {
+      width: 120px;
+    }
+
+    h3 {
+      color: #e11d48;
+    }
+
+    button {
+      padding: 10px 18px;
+      margin: 8px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .yes {
+      background: #ec4899;
+      color: white;
+    }
+
+    .no {
+      background: #e5e7eb;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <img src="https://i.imgur.com/6XbFjvP.png">
+  <h3>Rajat ❤️ Sia</h3>
+  <p>Kya tum meri Valentine banogi? 💖</p>
+
+  <button class="yes" onclick="yesClick()">Haan 💕</button>
+  <button class="no" onclick="noClick()">Sach mein? 😳</button>
+</div>
+
+<script>
+  let i = 0;
+  const msgs = [
+    "Sach mein? 😳",
+    "Soch lo ek baar 🥺",
+    "Dil toot jayega 💔",
+    "Last chance 😢"
+  ];
+
+  function noClick() {
+    const noBtn = document.querySelector(".no");
+    const yesBtn = document.querySelector(".yes");
+
+    noBtn.innerText = msgs[i];
+    i = (i + 1) % msgs.length;
+
+    let size = parseFloat(getComputedStyle(yesBtn).fontSize);
+    yesBtn.style.fontSize = (size * 1.25) + "px";
+  }
+
+  function yesClick() {
+    const msg = encodeURIComponent(
+      "Haan ❤️ Main tumhari Valentine hoon 😘💖"
+    );
+    window.location.href = "https://wa.me/?text=" + msg;
+  }
+</script>
+
+</body>
+</html>
